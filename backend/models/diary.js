@@ -21,6 +21,7 @@ const diary_schema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
+        unique: false
     },
     public:{
         type: Boolean,

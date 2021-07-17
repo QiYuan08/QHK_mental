@@ -23,6 +23,7 @@ router.get('/details', (req, res) => {
 
 // code to store new diary
 router.post('/newDiary', (req, res) => {
+
     let body = req.body;
     let title = body['title'];
     let content = body['content'];
