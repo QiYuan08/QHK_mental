@@ -13,16 +13,6 @@ const user_schema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    // create an array of diary for every diary the user created
-    diary: [{
-        title: {type: String, required: true},
-        content: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Diary',
-            required: true
-        }
-
-    }]
+    }
 
 })
