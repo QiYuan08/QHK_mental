@@ -1,19 +1,28 @@
-header {
-    background: lightblue;
-  
-    #logo {
-      max-width: 60px;
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#back {
+  float: left; 
+  font-size: 30px;
+  width:  fit-content;
+}
+
+form {
+  background: rgb(124, 120, 120);
+  width:80%;
+  height: 80%;
+  margin: 10px;
+  padding: 10px;
+  align-self: center;
+
+  p{
+    text-align: center; 
+    font-size: 20px;
+
+    input, textarea {
+      width: 100%;
     }
   }
-
-  #active-entry {
-    background: rgb(124, 120, 120);
-    width:80%;
-    height: 80%;
-    margin: 10px;
-    padding: 10px;
-  }
-
-  input {
-    width: 100%;
-  }
+}
