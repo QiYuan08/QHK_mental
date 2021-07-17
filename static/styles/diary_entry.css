@@ -5,4 +5,12 @@ header {
 header #logo {
   max-width: 60px;
 }
+
+#active-entry {
+  background: #7c7878;
+  width: 80%;
+  height: 80%;
+  margin: 10px;
+  padding: 10px;
+}
 /*# sourceMappingURL=diary_entry.css.map */
