@@ -1,0 +1,37 @@
+header {
+  background: lightblue;
+}
+
+header #logo {
+  max-width: 60px;
+}
+
+.diary-entry-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.diary-entry-display #empty-entry {
+  background: #d1e8f0;
+  width: 350px;
+  height: 400px;
+  margin: 10px;
+}
+
+.diary-entry-display #empty-entry .entry-top {
+  background-image: url("https://images.unsplash.com/photo-1542087275-ebe6bec55d95?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG1vb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70%;
+}
+/*# sourceMappingURL=diary.css.map */
