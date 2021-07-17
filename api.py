@@ -13,12 +13,14 @@ def instruction():
     return render_template("instruction.html")
 
 
-@app.route("/diary", methods=['GET', 'POST'])
-def diary():
+@app.route("/diary_display", methods=['GET', 'POST'])
+def diary_display():
+    if request.method == "POST":
+        return render_template("diary_display.html", data=request.form)
     return render_template("diary_display.html")
 
 
-@app.route("/diary_entry", methods=['GET', 'POST'])
+@app.route("/diary_entry", methods=['GET'])
 def diary_entry():
     return render_template("diary_entry.html")
 
