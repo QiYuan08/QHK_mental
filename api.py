@@ -15,11 +15,12 @@ def instruction():
 
 @app.route("/diary", methods=['GET', 'POST'])
 def diary():
-    return render_template("diary_page.html")
+    return render_template("diary_display.html")
 
-# @app.route("/", methods = ['GET', 'POST'])
-# def ():
-#     return render_template(".html")
+
+@app.route("/diary_entry", methods=['GET', 'POST'])
+def diary_entry():
+    return render_template("diary_entry.html")
 
 
 if __name__ == "__main__":
