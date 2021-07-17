@@ -7,6 +7,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/styles/diary.css">
 </head>
 
@@ -17,15 +18,33 @@
             <img id="logo" src="/static/logo.PNG" alt="temp-logo"> 
           </div>
           <div class="col-xs-8">
-            <h1>beHeard</h1>
+            <h1><a href="main_page.html">beHeard</a></h1>
             <h2></h2>
           </div>
         </div>
       </header>
 
-      <br>
       <div class="diary-entry-display">
-        <div id="empty-entry">
+          <div class="entry">
+            <div class="entry-top">
+            </div>
+            <div class="entry-bottom">
+              <h3>Title</h3>
+              <p>Date</p>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-top">
+            </div>
+            <div class="entry-bottom">
+              <h3>Title</h3>
+              <p>Date</p>
+            </div>
+       
+        </div>
+
+        <div class="entry">
           <div class="entry-top">
           </div>
           <div class="entry-bottom">
@@ -34,36 +53,19 @@
           </div>
         </div>
 
-        <div id="empty-entry">
+        <div class="entry">
           <div class="entry-top">
           </div>
           <div class="entry-bottom">
-            <h3>Empty entry</h3>
-            <p>Date</p>
-          </div>
-        </div>
-
-        <div id="empty-entry">
-          <div class="entry-top">
-          </div>
-          <div class="entry-bottom">
-            <h3>Empty entry</h3>
-            <p>Date</p>
-          </div>
-        </div>
-
-        <div id="empty-entry">
-          <div class="entry-top">
-          </div>
-          <div class="entry-bottom">
-            <h3>Empty entry</h3>
+            <h3>Title</h3>
             <p>Date</p>
           </div>
         </div>
 
         
+        <a id="add-entry" href="diary_entry.html"><i class="fa fa-plus-circle"></i></a>
+        
       </div>
-  
 
 
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
