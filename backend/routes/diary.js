@@ -78,7 +78,7 @@ router.patch('/update', (req, res) => {
 router.post('/getMyDiary', (req, res) => {
 
     let owner = req.body['owner']
-    return Diary.find({ public: true, owner: owner }).exec()
+    return Diary.find({ owner: owner }).exec()
     .then((result) => {
 
         res.status(200).json(result)

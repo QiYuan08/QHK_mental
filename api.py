@@ -34,49 +34,48 @@ def diary_display():
 
 @app.route("/public_diaries", methods=['GET', 'POST'])
 def public_diaries():
-    if request.method == "POST":
-        return render_template("public_diaries.html", data=request.form)
-    return render_template("public_diaries.html")
 
+    diaries = requests.get(BASE_URL + 'diary/getPublicDiary') # return all user diaries
+    
+    return render_template("diary_display.html", data=diaries.json())
 
 
 @app.route("/upload", methods=['POST'])
 def upload():
 
     isPublic = False
-    # if request.form['submitBtn'] == 'Private':
-    #     isPublic = False
-    # else:
-    #     isPublic = True
+    if request.form['submitBtn'] == 'private':
+        isPublic = False
+    else:
+        isPublic = True
 
     data = {
         'title':  request.form['title'],
-        'content': request.form['text'],
+        'content': request.form['content'],
         'owner': session['id'],
         'isPublic': isPublic,
-        'dateCreated': request.form['date'].replace('-', '')
+        'dateCreated': request.form['date']
     }
 
     response = requests.post(BASE_URL + 'diary/newDiary',
                              data=json.dumps(data), headers=headers)
 
     # after saving redirect to diary_display.html
-    if response.status_code == '200':
-        data = {'owner': session['id']}
-        diaries = requests.post(BASE_URL + 'diary/getMyDiary', headers=headers,
-                                data=json.dumps(data))  # return all user diaries
-
-        return render_template("diary_display.html", data=diaries.json())
+    if response.status_code == 200:
+        return render_template("main_page.html")
 
     else:
         print(response.json())
         return response.json()
 
 
-@app.route("/diary_entry", methods=['GET', 'POST'])
-def diary_entry():
-    return render_template("diary_entry.html")
+@app.route("/diary_entry_public", methods=['GET', 'POST'])
+def diary_entry_public():
+    return render_template("diary_entry_public.html")
 
+@app.route("/diary_entry_private", methods=['GET', 'POST'])
+def diary_entry_private():
+    return render_template("diary_entry_private.html")
 
 @app.route("/test", methods=['GET', 'POST'])
 def test():
