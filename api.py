@@ -90,6 +90,10 @@ def test():
     return render_template("grief_disorder_test.html")
 
 
+@app.route("/test_home", methods=['GET', 'POST'])
+def test_home():
+    return render_template("tests.html")
+
 @app.route("/chat_room", methods=['GET', 'POST'])
 def chat_room():
     if request.method == "POST":

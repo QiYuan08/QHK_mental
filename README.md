@@ -8,7 +8,7 @@ This guild will be a step by step guild to user in accessing the application as 
 User can access to the application by running the web application in a local environment. 
 
 In Visual Studio Code, user must install all the necessary dependencies by running these code in the terminal
-> &emsp;  pip install flask
+> &emsp; pip install flask
 > &emsp; pip install flask-socketio
 > &emsp; npm install mongoose
 > &emsp; pip install requests
