@@ -1,7 +1,6 @@
 from flask import Flask, redirect, url_for, render_template, request, session
 import requests
 import json
-import jyserver.Flask as jsf
 
 app = Flask(__name__)
 
