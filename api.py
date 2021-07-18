@@ -26,12 +26,18 @@ def instruction():
 
 @app.route("/diary_display", methods=['GET', 'POST'])
 def diary_display():
-
-
+  
     data = { 'owner': session['id'] }
     diaries = requests.post(BASE_URL + 'diary/getMyDiary', headers=headers, data=json.dumps(data)) # return all user diaries
     
     return render_template("diary_display.html", data=diaries.json())
+
+@app.route("/public_diaries", methods=['GET', 'POST'])
+def public_diaries():
+    if request.method == "POST":
+        return render_template("public_diaries.html", data=request.form)
+    return render_template("public_diaries.html")
+
 
 
 @app.route("/upload", methods=['POST'])
@@ -54,15 +60,34 @@ def upload():
     response = requests.post(BASE_URL + 'diary/newDiary',
                              data=json.dumps(data), headers=headers)
 
+    # after saving redirect to diary_display.html
     if response.status_code == '200':
-        return True
+        data = {'owner': session['id']}
+        diaries = requests.post(BASE_URL + 'diary/getMyDiary', headers=headers,
+                                data=json.dumps(data))  # return all user diaries
+
+        return render_template("diary_display.html", data=diaries.json())
+
     else:
+        print(response.json())
         return response.json()
 
 
 @app.route("/diary_entry", methods=['GET', 'POST'])
 def diary_entry():
     return render_template("diary_entry.html")
+
+
+@app.route("/test", methods=['GET', 'POST'])
+def test():
+    return render_template("grief_disorder_test.html")
+
+
+@app.route("/chat_room", methods=['GET', 'POST'])
+def chat_room():
+    if request.method == "POST":
+        return render_template("chat_room.html", data=request.form)
+    return render_template("chat_room.html")
 
 
 if __name__ == "__main__":

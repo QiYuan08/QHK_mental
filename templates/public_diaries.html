@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  .button-center {
+    text-align: center;
+  }
+
+  body {
+    background-image: url('/static/background/background2.jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  h1 {
+        color: black;
+        font-size: 50px;
+        text-align: center;
+        font-family: arial, helvetica, sans-serif;
+        text-decoration: underline overline;
+  }
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Dairy</title>
+  <button id="back" style="align-self: start; font-size: 30px;"><a href="{{ url_for('home') }}">Back</a></button>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/styles/public_diary.css">
+</head>
+
+<body class="container-fluid">
+  <br>
+
+  <h1>Public Diaries</h1>
+
+  <div class="diary-entry-slider">
+    <div class="entry slide">
+      <div class="entry-top">
+      </div>
+      <div class="entry-bottom">
+        <h3>Vaccine Day</h3>
+        <h4>1/May/2021</h4>
+        <p>Today is a good day, had my vaccination done. </p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-top">
+      </div>
+      <div class="entry-bottom">
+        <h3>Result Day</h3>
+        <h4>1/May/2021</h4>
+        <p>HOHO! Got my result today. FULL HD XD</p>
+      </div>
+
+    </div>
+
+    <div class="entry">
+      <div class="entry-top">
+      </div>
+      <div class="entry-bottom">
+        <h3>Title</h3>
+        <h4>Date</h4>
+        <p>Content</p>
+      </div>
+    </div>
+
+    {% if data %}
+    <div class="entry">
+      <div class="entry-top">
+      </div>
+      <div class="entry-bottom">
+        <h3>{{data.title}}</h3>
+        <h4>{{data.date}}</h4>
+        <p>{{data.content}}</p>
+      </div>
+    </div>
+    {% endif %}
+
+
+  </div>
+
+</body>
+
+</html>

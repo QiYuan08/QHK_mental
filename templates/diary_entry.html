@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+  body {
+    background-image: url('/static/background/background2.jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
   input[type=text],
   select {
     width: 100%;
@@ -44,6 +51,7 @@
 
   .button-center {
     text-align: center;
+    color: black;
   }
 </style>
 
@@ -70,8 +78,7 @@
   </header> -->
 
   <button id="back"><a href="{{ url_for('upload') }}">Back</a></button>
-  <h1>Would you prefer your diary in private or public mode?</h1>
-
+  
   <div>
     <form action="diary_display" method="POST">
       <label for="title">Title</label>
@@ -88,6 +95,24 @@
       <button type="submit">Submit</button>
     </form>
   </div>
+
+  <!-- 
+  <form method=POST action="{{ url_for('upload') }}">
+
+    <p><input name="title" id="title" type="text" placeholder="title"></p>
+
+    <p><input name="date" id="date" type="date" placeholder="date"></p>
+
+    <p class="text">
+      <textarea name="text" id="comment" placeholder="content">
+        </textarea>
+    </p>
+
+    <div class="button-center">
+      <button type="submit" id="private" name="submitBtn" value="Private" style=" font-size: 20px;">Private</button>
+      <button type="submit" id="public" name="submitBtn" value="Public" style=" font-size: 20px;">Public</button>
+    </div>
+  </form> -->
 
 </body>
 
