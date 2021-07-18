@@ -30,6 +30,13 @@ def diary_display():
     return render_template("diary_display.html")
 
 
+@app.route("/public_diaries", methods=['GET', 'POST'])
+def public_diaries():
+    if request.method == "POST":
+        return render_template("public_diaries.html", data=request.form)
+    return render_template("public_diaries.html")
+
+
 @app.route("/upload", methods=['POST'])
 def upload():
 
@@ -65,6 +72,13 @@ def diary_entry():
 @app.route("/test", methods=['GET', 'POST'])
 def test():
     return render_template("grief_disorder_test.html")
+
+
+@app.route("/chat_room", methods=['GET', 'POST'])
+def chat_room():
+    if request.method == "POST":
+        return render_template("chat_room.html", data=request.form)
+    return render_template("chat_room.html")
 
 
 if __name__ == "__main__":

@@ -34,7 +34,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Mental Health App</title>
-    <button id="instructions" style="float: right; font-size: 30px;"><a
+    <button id="instructions" style="align-self: right; font-size: 30px;"><a
             href="{{ url_for('instruction') }}">Instructions</a></button>
 
 </head>
@@ -57,6 +57,14 @@
 
     <div class = "button-center">
         <button id="test" style="  font-size: 30px;"><a href="{{ url_for('test') }}"> Test</a></button>
+    </div>
+
+    <h2>
+        Chat with us
+    </h2>
+
+    <div class = "button-center">
+        <button id="chat" style="  font-size: 30px;"><a href="{{ url_for('chat_room') }}"> Chat</a></button>
     </div>
 
 </body>
