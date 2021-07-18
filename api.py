@@ -8,7 +8,6 @@ BASE_URL = "http://localhost:4000/"
 headers = {u'content-type': u'application/json'}
 app.secret_key = '12312fdfjkqnewfuajndf'
 
-
 @app.route("/", methods=['GET', 'POST'])
 def home():
 
@@ -27,19 +26,18 @@ def instruction():
 
 @app.route("/diary_display", methods=['GET', 'POST'])
 def diary_display():
-
-    data = {'owner': session['id']}
-    diaries = requests.post(BASE_URL + 'diary/getMyDiary', headers=headers,
-                            data=json.dumps(data))  # return all user diaries
-
+  
+    data = { 'owner': session['id'] }
+    diaries = requests.post(BASE_URL + 'diary/getMyDiary', headers=headers, data=json.dumps(data)) # return all user diaries
+    
     return render_template("diary_display.html", data=diaries.json())
-
 
 @app.route("/public_diaries", methods=['GET', 'POST'])
 def public_diaries():
     if request.method == "POST":
         return render_template("public_diaries.html", data=request.form)
     return render_template("public_diaries.html")
+
 
 
 @app.route("/upload", methods=['POST'])
@@ -58,7 +56,6 @@ def upload():
         'isPublic': isPublic,
         'dateCreated': request.form['date'].replace('-', '')
     }
-    headers = {u'content-type': u'application/json'}
 
     response = requests.post(BASE_URL + 'diary/newDiary',
                              data=json.dumps(data), headers=headers)

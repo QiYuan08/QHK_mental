@@ -75,4 +75,27 @@ router.patch('/update', (req, res) => {
 
 })
 
+router.post('/getMyDiary', (req, res) => {
+
+    let owner = req.body['owner']
+    return Diary.find({ public: true, owner: owner }).exec()
+    .then((result) => {
+
+        res.status(200).json(result)
+
+    })
+    .catch((err) => res.status(400).send(err));
+})
+
+router.get('/getPublicDiary', (req, res) => {
+
+    return Diary.find({ public: true }).exec()
+    .then((result) => {
+
+        res.status(200).send(result)
+
+    })
+    .catch((err) => res.status(400).send(err));
+})
+ 
 module.exports = router;

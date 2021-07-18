@@ -24,6 +24,7 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 mongoose.set('useCreateIndex', true);
 
 const diaryRoute = require('./routes/diary');
+const userRoute = require('./routes/user');
 
 app.use(morgan('dev'));
 app.use(express.json()); //Used to parse JSON bodies
@@ -31,7 +32,7 @@ app.use(express.json()); //Used to parse JSON bodies
 // set up the routes
 // can add other routes here like update to update data
 app.use('/diary', diaryRoute);
-
+app.use('/user', userRoute);
 
 app.use((req, res, next) => {
 
