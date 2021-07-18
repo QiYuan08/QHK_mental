@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 <style>
 body {
   margin: 0 auto;
@@ -57,23 +59,51 @@ h2 {
     }
 </style>
 </head>
+
+<!-- script for chatroom using socket io -->
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+  var socket = io.connect('http://127.0.0.1:5000/');
+
+  socket.on('connect', function() {
+    socket.send('User has connected!');
+  });
+
+  socket.on('message', function(msg) {
+    console.log(msg);
+    $('#chat-container').append( '<div class="chat-container"><div class="container"><img src="/static/avatar1.png" alt="Avatar" style="width:100%;"><p>' + msg +'</p></div>');
+    console.log('Received message');
+  })
+
+  $('#submitBtn').on('click', function() {
+    socket.send($('#chatbox').val());
+    // $('#chatbox').val('');
+  });
+
+})
+
+</script>
 <body>
 
 <h2>Chat Messages</h2>
 <button id="back" style="align-self: left; font-size: 30px;"><a href="{{ url_for('home') }}">Back</a></button>
-    <meta charset="utf-8">
 
-<div class="container">
-  <img src="/static/avatar1.png" alt="Avatar" style="width:100%;">
-  <p>Hello. How are you today?</p>
+<div id='chat-container'>
+  <!-- <div class="container">
+    <img src="/static/avatar1.png" alt="Avatar" style="width:100%;">
+    <p>Hello. How are you today?</p>
+  </div>
+  
+  {% if data %}
+      <div class="container darker">
+      <img src="/static/avatar2.png" alt="Avatar" class="right" style="width:100%;">
+      <p>{{data.chatbox}}</p>
+      </div>
+      {% endif %} -->
 </div>
 
-{% if data %}
-    <div class="container darker">
-    <img src="/static/avatar2.png" alt="Avatar" class="right" style="width:100%;">
-    <p>{{data.chatbox}}</p>
-    </div>
-    {% endif %}
 
 
 <div class = "chat-center">
@@ -82,7 +112,7 @@ h2 {
           <label for="char">ChatBox </label>
           <input type="text" id="chatbox" name="chatbox" placeholder="Reply..">
     
-          <button type="send">Send</button>
+          <button id="submitBtn"  type="button">Send</button>
         </form>
       </div>
 </div>

@@ -1,4 +1,5 @@
 from flask import Flask, redirect, url_for, render_template, request, session
+from flask_socketio import SocketIO, send
 import requests
 import json
 
@@ -7,6 +8,13 @@ app = Flask(__name__)
 BASE_URL = "http://localhost:4000/"
 headers = {u'content-type': u'application/json'}
 app.secret_key = '12312fdfjkqnewfuajndf'
+socketio = SocketIO(app)
+
+@socketio.on('message') # listen to message event
+def handleMessage(msg):
+    print('Message: ' + msg)
+    send(msg, broadcast=True)
+
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
@@ -90,4 +98,6 @@ def chat_room():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    socketio.run(app, debug=True)
+    # app.run(debug=True)
+    
