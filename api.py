@@ -62,5 +62,10 @@ def diary_entry():
     return render_template("diary_entry.html")
 
 
+@app.route("/test", methods=['GET', 'POST'])
+def test():
+    return render_template("grief_disorder_test.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

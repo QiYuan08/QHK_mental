@@ -2,7 +2,7 @@
 <html>
 <style>
     body {
-        background-image: url('/static/background.jpeg');
+        background-image: url('/static/background/background.jpeg');
         background-attachment: fixed;
         background-size: cover;
         background-repeat: no-repeat;
@@ -48,6 +48,14 @@
     </h2>
     <div class="button-center">
         <button id="diary" style="  font-size: 30px;"><a href="{{ url_for('diary_display') }}">Diary</a></button>
+    </div>
+
+    <h2>
+        Grief Disorder Test
+    </h2>
+
+    <div class = "button-center">
+        <button id="test" style="  font-size: 30px;"><a href="{{ url_for('test') }}"> Test</a></button>
     </div>
 
 </body>
