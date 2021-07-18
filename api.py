@@ -89,6 +89,9 @@ def diary_entry_private():
 def test():
     return render_template("grief_disorder_test.html")
 
+@app.route("/depression_test", methods=['GET', 'POST'])
+def depression_test():
+    return render_template("depression_test.html")
 
 @app.route("/test_home", methods=['GET', 'POST'])
 def test_home():
